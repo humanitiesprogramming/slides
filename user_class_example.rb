@@ -1,3 +1,5 @@
+# let's annotate some code together.
+
 class User
     def initialize(some_name = "anonymous", some_email = "none")
         @name = some_name
@@ -16,6 +18,10 @@ class User
         @email = new_email
     end
 
+    def change_name!(new_name)
+        @name = new_name
+    end
+
 end
 
 brandon = User.new("brandon", "bmw9t@virginia.edu")
@@ -23,3 +29,5 @@ brandon.display_name
 brandon.display_email
 brandon.change_email!("echreed@gmail.com")
 brandon.display_email
+brandon.change_name!("Ethan 'Boss Man' Reed")
+brandon.display_name

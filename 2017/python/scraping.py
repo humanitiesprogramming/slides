@@ -35,12 +35,19 @@ for link in links_html:
     url = link['href'].replace('blob/', '')
     urls.append("https://raw.githubusercontent.com" + url)
 
+# creates an empty list called corpus_texts
 corpus_texts = []
+# for each thing in urls, go through them
 for url in urls:
-    print(url)
+    # print the url first.
+    # print(url)
+    # open the url and getting the html at it.
     html = request.urlopen(url).read()
+    # convert the html we have into something we can use - a bunch of beautiful soup in this case.
     soup = BeautifulSoup(html, "lxml")
+    # get all the text that we have. then take all the line breaks and replace them with nothing.
     text = soup.text.replace('\n', '')
+    # take the text data and add it to the growing corpus.
     corpus_texts.append(text)
-
+# print out the contents of the thing
 print(corpus_texts)
